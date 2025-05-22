@@ -1,9 +1,9 @@
 try:
     import RPi.GPIO as GPIO
-    print("[INFO] <Motor> Echtbetrieb: RPi.GPIO wurde importiert.")
+    print("[INFO] <Motor> Live operation: imported RPi.GPIO")
 except ModuleNotFoundError:
     import RPi_Mock as GPIO
-    print("[INFO] <Motor> Testbetrieb: RPi_Mock wurde importiert.")
+    print("[INFO] <Motor> Testrun: imported RPi_Mock")
 
 
 class Motor:

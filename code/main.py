@@ -1,37 +1,37 @@
-from Motor import Motor
 from MotorDriver import MotorDriver
 try:
     import RPi.GPIO as GPIO
-    print("[INFO] <main> Echtbetrieb: RPi.GPIO wurde importiert.")
+    print("[INFO] <main> Live operation: imported RPi.GPIO")
 except ModuleNotFoundError:
     import RPi_Mock as GPIO
-    print("[INFO] <main> Testbetrieb: RPi_Mock wurde importiert.")
+    print("[INFO] <main> Testrun: imported RPi_Mock")
 
+import keyboard
 import time
 
 if __name__ == "__main__":
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setwarnings(False)
+    motor_driver = MotorDriver(left_motor_pins=(15,16), right_motor_pins=(18,22))
 
     try:
-        left_motor = Motor(pin_forward=15, pin_backward=16)
-        right_motor = Motor(pin_forward=18, pin_backward=22)
-        driver = MotorDriver(left_motor, right_motor)
+        while True:
+            if keyboard.is_pressed('w') or keyboard.is_pressed('up'):
+                motor_driver.forward()
+            elif keyboard.is_pressed('s') or keyboard.is_pressed('down'):
+                motor_driver.backward()
+            elif keyboard.is_pressed('a') or keyboard.is_pressed('left'):
+                motor_driver.rotate_left()
+            elif keyboard.is_pressed('d') or keyboard.is_pressed('right'):
+                motor_driver.rotate_right()
+            else:
+                motor_driver.stop()
 
-        print("Vorwärtsfahrt")
-        driver.forward()
-        time.sleep(2)
+            if keyboard.is_pressed('esc'):
+                motor_driver.stop()
+                break
 
-        print("Rechtsdrehung")
-        driver.rotate_right()
-        time.sleep(1)
-
-        print("Stopp")
-        driver.stop()
-
+            time.sleep(0.05)
     finally:
-        GPIO.cleanup()
+        motor_driver.cleanup()
 
-# TODO: implement keyboard control
 # TODO: implement logger that prints in Mock mode to the console and into a file /var/log/falk in RPi mode
 # TODO: every input should be formatted with: Timestamp - LogLevel - Classname - Message

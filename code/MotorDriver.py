@@ -1,27 +1,44 @@
-import Motor
+from Motor import Motor
 
+try:
+    import RPi.GPIO as GPIO
+    print("[INFO] <MotorDriver> Live operation: imported RPi.GPIO")
+except ModuleNotFoundError:
+    import RPi_Mock as GPIO
+    print("[INFO] <MotorDriver> Testrun: imported RPi_Mock")
 
 class MotorDriver:
-    def __init__(self, left_motor: Motor, right_motor: Motor):
-        self.left = left_motor
-        self.right = right_motor
+    def __init__(self, left_motor_pins, right_motor_pins):
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setwarnings(False)
+        self.leftMotor = Motor(*left_motor_pins)
+        self.rightMotor = Motor(*right_motor_pins)
 
     def forward(self):
-        self.left.forward()
-        self.right.forward()
+        print("[INFO] <MotorDriver> Drive forward.")
+        self.leftMotor.forward()
+        self.rightMotor.forward()
 
     def backward(self):
-        self.left.backward()
-        self.right.backward()
+        print("[INFO] <MotorDriver> Drive backward.")
+        self.leftMotor.backward()
+        self.rightMotor.backward()
 
     def rotate_left(self):
-        self.left.backward()
-        self.right.forward()
+        print("[INFO] <MotorDriver> Rotate left.")
+        self.leftMotor.backward()
+        self.rightMotor.forward()
 
     def rotate_right(self):
-        self.left.forward()
-        self.right.backward()
+        print("[INFO] <MotorDriver> Rotate right.")
+        self.leftMotor.forward()
+        self.rightMotor.backward()
 
     def stop(self):
-        self.left.stop()
-        self.right.stop()
+        print("[INFO] <MotorDriver> Stop.")
+        self.leftMotor.stop()
+        self.rightMotor.stop()
+
+    def cleanup(self):
+        self.stop()
+        GPIO.cleanup()
