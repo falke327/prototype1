@@ -1,6 +1,6 @@
 # RPi_Mock.py
 
-# Dieses Modul emuliert die RPi.GPIO-Schnittstelle für Nicht-Raspberry-Umgebungen
+# This Module emulates the RPi.GPIO-Interface for non-Raspberry-systems
 
 BCM = 'BCM'
 BOARD = 'BOARD'

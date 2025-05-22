@@ -2,8 +2,10 @@ from Motor import Motor
 from MotorDriver import MotorDriver
 try:
     import RPi.GPIO as GPIO
+    print("[INFO] <main> Echtbetrieb: RPi.GPIO wurde importiert.")
 except ModuleNotFoundError:
     import RPi_Mock as GPIO
+    print("[INFO] <main> Testbetrieb: RPi_Mock wurde importiert.")
 
 import time
 
@@ -29,3 +31,7 @@ if __name__ == "__main__":
 
     finally:
         GPIO.cleanup()
+
+# TODO: implement keyboard control
+# TODO: implement logger that prints in Mock mode to the console and into a file /var/log/falk in RPi mode
+# TODO: every input should be formatted with: Timestamp - LogLevel - Classname - Message
