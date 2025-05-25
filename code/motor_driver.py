@@ -11,36 +11,48 @@ except ModuleNotFoundError:
 
 class MotorDriver:
     def __init__(self, left_motor_pins, right_motor_pins):
+        self.log = log.getChild("MotorDriver")
+        self.log.info("Initializing MotorDriver")
         GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
-        self.leftMotor = Motor(*left_motor_pins)
-        self.rightMotor = Motor(*right_motor_pins)
+
+        self.log.debug(f"Left Motor Pins: {left_motor_pins}")
+        self.log.debug(f"Right Motor Pins: {right_motor_pins}")
+
+        try:
+            self.left_motor = Motor(*left_motor_pins)
+            self.right_motor = Motor(*right_motor_pins)
+            self.log.info("Motors initialized successfully.")
+        except Exception as e:
+            self.log.error(f"Motor initialization failed: {e}")
+            raise
 
     def forward(self):
-        log.info("Drive forward.")
+        self.log.debug("Drive forward.")
         self.leftMotor.forward()
         self.rightMotor.forward()
 
     def backward(self):
-        log.info("Drive backward.")
+        self.log.debug("Drive backward.")
         self.leftMotor.backward()
         self.rightMotor.backward()
 
     def rotate_left(self):
-        log.info("Rotate left.")
+        self.log.debug("Rotate left.")
         self.leftMotor.backward()
         self.rightMotor.forward()
 
     def rotate_right(self):
-        log.info("Rotate right.")
+        self.log.debug("Rotate right.")
         self.leftMotor.forward()
         self.rightMotor.backward()
 
     def stop(self):
-        log.info("Stop.")
+        self.log.debug("Stop.")
         self.leftMotor.stop()
         self.rightMotor.stop()
 
     def cleanup(self):
+        self.log.info("Cleanup GPIO")
         self.stop()
         GPIO.cleanup()

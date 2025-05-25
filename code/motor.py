@@ -11,22 +11,30 @@ except ModuleNotFoundError:
 
 class Motor:
     def __init__(self, pin_forward, pin_backward):
+        self.log = log.getChild("Motor")
         self.pin_forward = pin_forward
         self.pin_backward = pin_backward
         self.setup()
 
     def setup(self):
-        GPIO.setup(self.pin_forward, GPIO.OUT)
-        GPIO.setup(self.pin_backward, GPIO.OUT)
+        try:
+            GPIO.setup(self.pin_forward, GPIO.OUT)
+            GPIO.setup(self.pin_backward, GPIO.OUT)
+            self.log.debug(f"Setup complete for pins {self.pin_forward}/{self.pin_backward}")
+        except Exception as e:
+            self.log.error(f"GPIO setup failed: {e}")
 
     def forward(self):
+        self.log.debug("Motor forward")
         GPIO.output(self.pin_forward, GPIO.HIGH)
         GPIO.output(self.pin_backward, GPIO.LOW)
 
     def backward(self):
+        self.log.debug("Motor backward")
         GPIO.output(self.pin_forward, GPIO.LOW)
         GPIO.output(self.pin_backward, GPIO.HIGH)
 
     def stop(self):
+        self.log.debug("Motor stop")
         GPIO.output(self.pin_forward, GPIO.LOW)
         GPIO.output(self.pin_backward, GPIO.LOW)
