@@ -1,5 +1,7 @@
 from motor_driver import MotorDriver
 from logger import setup_logger
+from keyboard_control import keyboard_loop
+
 try:
     import RPi.GPIO as GPIO
     log = setup_logger(__name__, True)
@@ -9,29 +11,11 @@ except ModuleNotFoundError:
     log = setup_logger(__name__, False)
     log.info("Testrun: imported RPi_Mock")
 
-import keyboard
-import time
-
 if __name__ == "__main__":
     motor_driver = MotorDriver(left_motor_pins=(15,16), right_motor_pins=(18,22))
 
     try:
-        while True:
-            if keyboard.is_pressed('w') or keyboard.is_pressed('up'):
-                motor_driver.forward()
-            elif keyboard.is_pressed('s') or keyboard.is_pressed('down'):
-                motor_driver.backward()
-            elif keyboard.is_pressed('a') or keyboard.is_pressed('left'):
-                motor_driver.rotate_left()
-            elif keyboard.is_pressed('d') or keyboard.is_pressed('right'):
-                motor_driver.rotate_right()
-            else:
-                motor_driver.stop()
-
-            if keyboard.is_pressed('esc'):
-                motor_driver.stop()
-                break
-
-            time.sleep(0.1)
+        keyboard_loop(motor_driver, log)
     finally:
         motor_driver.cleanup()
+        log.info("Cleaned up GPIO and exited.")

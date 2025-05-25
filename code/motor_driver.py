@@ -28,29 +28,29 @@ class MotorDriver:
             raise
 
     def forward(self):
-        self.log.debug("Drive forward.")
-        self.leftMotor.forward()
-        self.rightMotor.forward()
+        self.log.info("Drive forward.")
+        self.left_motor.forward()
+        self.right_motor.forward()
 
     def backward(self):
-        self.log.debug("Drive backward.")
-        self.leftMotor.backward()
-        self.rightMotor.backward()
+        self.log.info("Drive backward.")
+        self.left_motor.backward()
+        self.right_motor.backward()
 
     def rotate_left(self):
-        self.log.debug("Rotate left.")
-        self.leftMotor.backward()
-        self.rightMotor.forward()
+        self.log.info("Rotate left.")
+        self.left_motor.backward()
+        self.right_motor.forward()
 
     def rotate_right(self):
-        self.log.debug("Rotate right.")
-        self.leftMotor.forward()
-        self.rightMotor.backward()
+        self.log.info("Rotate right.")
+        self.left_motor.forward()
+        self.right_motor.backward()
 
     def stop(self):
-        self.log.debug("Stop.")
-        self.leftMotor.stop()
-        self.rightMotor.stop()
+        self.log.info("Stop.")
+        self.left_motor.stop()
+        self.right_motor.stop()
 
     def cleanup(self):
         self.log.info("Cleanup GPIO")
