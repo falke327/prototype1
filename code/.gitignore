@@ -1,1 +1,7 @@
 .idea
+
+# ignore local logfiles
+/src/main/*.log
+/src/test/*.log
+
+__pycache__/
