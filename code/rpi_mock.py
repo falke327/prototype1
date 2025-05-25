@@ -1,4 +1,4 @@
-# RPi_Mock.py
+# rpi_mock.py
 
 # This Module emulates the RPi.GPIO-Interface for non-Raspberry-systems
 

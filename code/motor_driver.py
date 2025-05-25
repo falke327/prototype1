@@ -1,10 +1,10 @@
-from Motor import Motor
+from motor import Motor
 
 try:
     import RPi.GPIO as GPIO
     print("[INFO] <MotorDriver> Live operation: imported RPi.GPIO")
 except ModuleNotFoundError:
-    import RPi_Mock as GPIO
+    import rpi_mock as GPIO
     print("[INFO] <MotorDriver> Testrun: imported RPi_Mock")
 
 class MotorDriver:
