@@ -1,0 +1,97 @@
+2025-05-25 12:01:52 - [INFO] - motor: Testrun: imported RPi_Mock
+2025-05-25 12:01:52 - [INFO] - motor_driver: Testrun: imported RPi_Mock
+2025-05-25 12:01:52 - [INFO] - __main__: Testrun: imported RPi_Mock
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:53 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:54 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:55 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:56 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:57 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Rotate left.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:58 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Drive backward.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Stop.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:01:59 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Rotate right.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:00 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Drive forward.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:01 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:02 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:02 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:02 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:02 - [INFO] - motor_driver: Stop.
+2025-05-25 12:02:02 - [INFO] - motor_driver: Stop.

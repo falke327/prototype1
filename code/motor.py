@@ -1,9 +1,12 @@
+from logger import setup_logger
 try:
     import RPi.GPIO as GPIO
-    print("[INFO] <Motor> Live operation: imported RPi.GPIO")
+    log = setup_logger(__name__, True)
+    log.info("Live operation: imported RPi.GPIO")
 except ModuleNotFoundError:
     import rpi_mock as GPIO
-    print("[INFO] <Motor> Testrun: imported RPi_Mock")
+    log = setup_logger(__name__, False)
+    log.info("Testrun: imported RPi_Mock")
 
 
 class Motor:

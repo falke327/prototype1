@@ -1,11 +1,13 @@
 from motor import Motor
-
+from logger import setup_logger
 try:
     import RPi.GPIO as GPIO
-    print("[INFO] <MotorDriver> Live operation: imported RPi.GPIO")
+    log = setup_logger(__name__, True)
+    log.info("Live operation: imported RPi.GPIO")
 except ModuleNotFoundError:
     import rpi_mock as GPIO
-    print("[INFO] <MotorDriver> Testrun: imported RPi_Mock")
+    log = setup_logger(__name__, False)
+    log.info("Testrun: imported RPi_Mock")
 
 class MotorDriver:
     def __init__(self, left_motor_pins, right_motor_pins):
@@ -15,27 +17,27 @@ class MotorDriver:
         self.rightMotor = Motor(*right_motor_pins)
 
     def forward(self):
-        print("[INFO] <MotorDriver> Drive forward.")
+        log.info("Drive forward.")
         self.leftMotor.forward()
         self.rightMotor.forward()
 
     def backward(self):
-        print("[INFO] <MotorDriver> Drive backward.")
+        log.info("Drive backward.")
         self.leftMotor.backward()
         self.rightMotor.backward()
 
     def rotate_left(self):
-        print("[INFO] <MotorDriver> Rotate left.")
+        log.info("Rotate left.")
         self.leftMotor.backward()
         self.rightMotor.forward()
 
     def rotate_right(self):
-        print("[INFO] <MotorDriver> Rotate right.")
+        log.info("Rotate right.")
         self.leftMotor.forward()
         self.rightMotor.backward()
 
     def stop(self):
-        print("[INFO] <MotorDriver> Stop.")
+        log.info("Stop.")
         self.leftMotor.stop()
         self.rightMotor.stop()
 

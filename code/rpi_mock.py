@@ -1,4 +1,7 @@
 # rpi_mock.py
+from logger import setup_logger
+
+log = setup_logger(__name__, False)
 
 # This Module emulates the RPi.GPIO-Interface for non-Raspberry-systems
 
@@ -10,17 +13,17 @@ HIGH = 1
 LOW = 0
 
 def setmode(mode):
-    print(f"[MOCK] GPIO setmode({mode})")
+    log.debug(f"[MOCK] GPIO setmode({mode})")
 
 def setwarnings(flag):
-    print(f"[MOCK] GPIO setwarnings({flag})")
+    log.debug(f"[MOCK] GPIO setwarnings({flag})")
 
 def setup(pin, mode):
-    print(f"[MOCK] GPIO setup(pin={pin}, mode={mode})")
+    log.debug(f"[MOCK] GPIO setup(pin={pin}, mode={mode})")
 
 def output(pin, state):
-    print(f"[MOCK] GPIO output(pin={pin}, state={state})")
+    log.debug(f"[MOCK] GPIO output(pin={pin}, state={state})")
 
 def cleanup():
-    print(f"[MOCK] GPIO cleanup()")
+    log.debug(f"[MOCK] GPIO cleanup()")
 

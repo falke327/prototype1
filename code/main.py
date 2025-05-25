@@ -1,10 +1,13 @@
 from motor_driver import MotorDriver
+from logger import setup_logger
 try:
     import RPi.GPIO as GPIO
-    print("[INFO] <main> Live operation: imported RPi.GPIO")
+    log = setup_logger(__name__, True)
+    log.info("Live operation: imported RPi.GPIO")
 except ModuleNotFoundError:
     import rpi_mock as GPIO
-    print("[INFO] <main> Testrun: imported RPi_Mock")
+    log = setup_logger(__name__, False)
+    log.info("Testrun: imported RPi_Mock")
 
 import keyboard
 import time
@@ -29,9 +32,6 @@ if __name__ == "__main__":
                 motor_driver.stop()
                 break
 
-            time.sleep(0.05)
+            time.sleep(0.1)
     finally:
         motor_driver.cleanup()
-
-# TODO: implement logger that prints in Mock mode to the console and into a file /var/log/falk in RPi mode
-# TODO: every input should be formatted with: Timestamp - LogLevel - Classname - Message
