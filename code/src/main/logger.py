@@ -17,7 +17,7 @@ def setup_logger(name: str, is_pi: bool) -> logging.Logger:
 
     # logger config
     logger = logging.getLogger(name)
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
 
     # formatter
     formatter = logging.Formatter(
