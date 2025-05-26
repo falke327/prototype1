@@ -17,6 +17,8 @@ class Motor:
         self.setup()
 
     def setup(self):
+        if GPIO.getmode() is None:
+            GPIO.setmode(GPIO.BOARD)
         try:
             GPIO.setup(self.pin_forward, GPIO.OUT)
             GPIO.setup(self.pin_backward, GPIO.OUT)
