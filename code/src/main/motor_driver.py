@@ -1,13 +1,13 @@
 from motor import Motor
 from logger import setup_logger
-try:
-    import RPi.GPIO as GPIO
-    log = setup_logger(__name__, True)
-    log.info("Live operation: imported RPi.GPIO")
-except ModuleNotFoundError:
-    import rpi_mock as GPIO
-    log = setup_logger(__name__, False)
-    log.info("Testrun: imported RPi_Mock")
+# try:
+import RPi.GPIO as GPIO
+log = setup_logger(__name__, True)
+log.info("Live operation: imported RPi.GPIO")
+# except ModuleNotFoundError:
+#     import rpi_mock as GPIO
+#     log = setup_logger(__name__, False)
+#     log.info("Testrun: imported RPi_Mock")
 
 class MotorDriver:
     def __init__(self, left_motor_pins, right_motor_pins):
