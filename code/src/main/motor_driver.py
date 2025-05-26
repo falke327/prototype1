@@ -4,6 +4,11 @@ from logger import setup_logger
 import RPi.GPIO as GPIO
 log = setup_logger(__name__, True)
 log.info("Live operation: imported RPi.GPIO")
+log.info("Initializing MotorDriver")
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+
+
 # except ModuleNotFoundError:
 #     import rpi_mock as GPIO
 #     log = setup_logger(__name__, False)
@@ -12,9 +17,6 @@ log.info("Live operation: imported RPi.GPIO")
 class MotorDriver:
     def __init__(self, left_motor_pins, right_motor_pins):
         self.log = log.getChild("MotorDriver")
-        self.log.info("Initializing MotorDriver")
-        GPIO.setmode(GPIO.BOARD)
-        GPIO.setwarnings(False)
 
         self.log.debug(f"Left Motor Pins: {left_motor_pins}")
         self.log.debug(f"Right Motor Pins: {right_motor_pins}")
