@@ -17,12 +17,16 @@ if __name__ == "__main__":
 
     try:
         # keyboard_loop(motor_driver, log)
+        print("Vorwärts")
         motor_driver.forward()
         time.sleep(5)
+        print("Rückwärts")
         motor_driver.backward()
         time.sleep(5)
+        print("drehe links")
         motor_driver.rotate_left()
         time.sleep(5)
+        print("drehe rechts")
         motor_driver.rotate_right()
         time.sleep(5)
         motor_driver.stop()
