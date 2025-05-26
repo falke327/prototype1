@@ -1,42 +1,61 @@
-import keyboard
-import time
+import curses
+from logger import setup_logger
 
-def keyboard_loop(motor_driver, log):
-    direction = None
+log = setup_logger(__name__, True)
 
-    while True:
-        if keyboard.is_pressed('w') or keyboard.is_pressed('up'):
-            if direction != 'forward':
-                log.debug("Command: forward")
-                motor_driver.forward()
-                direction = 'forward'
+KEY_MAP = {
+    ord('w'): 'forward',
+    ord('s'): 'backward',
+    ord('a'): 'rotate_left',
+    ord('d'): 'rotate_right',
+    curses.KEY_UP: 'forward',
+    curses.KEY_DOWN: 'backward',
+    curses.KEY_LEFT: 'rotate_left',
+    curses.KEY_RIGHT: 'rotate_right',
+    ord(' '): 'stop',
+    27: 'exit',  # ESC
+}
 
-        elif keyboard.is_pressed('s') or keyboard.is_pressed('down'):
-            if direction != 'backward':
-                log.debug("Command: backward")
-                motor_driver.backward()
-                direction = 'backward'
 
-        elif keyboard.is_pressed('a') or keyboard.is_pressed('left'):
-            if direction != 'left':
-                log.debug("Command: rotate_left")
-                motor_driver.rotate_left()
-                direction = 'left'
+def run_keyboard_control(stdscr, driver):
+    curses.cbreak()
+    stdscr.nodelay(True)
+    stdscr.keypad(True)
 
-        elif keyboard.is_pressed('d') or keyboard.is_pressed('right'):
-            if direction != 'right':
-                log.debug("Command: rotate_right")
-                motor_driver.rotate_right()
-                direction = 'right'
+    stdscr.clear()
+    stdscr.addstr("Controls:\n")
+    stdscr.addstr("W / ↑ = Forward\nS / ↓ = Backward\nA / ← = Rotate Left\nD / → = Rotate Right\n")
+    stdscr.addstr("Space = Stop\nESC = Quit\n")
 
-        else:
-            if direction is not None:
-                log.debug("Command: stop")
-                motor_driver.stop()
-                direction = None
+    log.info("Started Keyboard control.")
 
-        if keyboard.is_pressed('esc'):
-            log.info("Escape pressed. Exiting control loop.")
-            break
+    try:
+        while True:
+            key = stdscr.getch()
+            action = KEY_MAP.get(key)
 
-        time.sleep(0.05)
+            if action:
+                log.debug(f"Key pressed: {key} → Action: {action}")
+
+            if action == 'forward':
+                driver.forward()
+            elif action == 'backward':
+                driver.backward()
+            elif action == 'rotate_left':
+                driver.rotate_left()
+            elif action == 'rotate_right':
+                driver.rotate_right()
+            elif action == 'stop':
+                driver.stop()
+            elif action == 'exit':
+                log.info("ESC pressed – Control has ended.")
+                break
+
+            curses.napms(100)  # 100 ms Sleep
+
+    finally:
+        driver.cleanup()
+        log.info("Driver cleanup completed.")
+        stdscr.addstr("Ended.\n")
+        stdscr.refresh()
+        curses.napms(1000)
