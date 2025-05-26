@@ -19,15 +19,16 @@ def setup_logger(name: str, is_pi: bool) -> logging.Logger:
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
-    # formatter
-    formatter = logging.Formatter(
-        fmt='%(asctime)s - [%(levelname)s] - %(name)s: %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
+    if not logger.hasHandlers():
+        # formatter
+        formatter = logging.Formatter(
+            fmt='%(asctime)s - [%(levelname)s] - %(name)s: %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
 
-    # file handler
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+        # file handler
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
 
     return logger

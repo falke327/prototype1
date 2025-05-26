@@ -1,18 +1,8 @@
 from motor import Motor
 from logger import setup_logger
-# try:
-import RPi.GPIO as GPIO
+
 log = setup_logger(__name__, True)
-log.info("Live operation: imported RPi.GPIO")
-log.info("Initializing MotorDriver")
-GPIO.setmode(GPIO.BOARD)
-GPIO.setwarnings(False)
-
-
-# except ModuleNotFoundError:
-#     import rpi_mock as GPIO
-#     log = setup_logger(__name__, False)
-#     log.info("Testrun: imported RPi_Mock")
+log.info("Live operation: imported lgpio")
 
 class MotorDriver:
     def __init__(self, left_motor_pins, right_motor_pins):
@@ -57,4 +47,5 @@ class MotorDriver:
     def cleanup(self):
         self.log.info("Cleanup GPIO")
         self.stop()
-        GPIO.cleanup()
+        self.left_motor.cleanup()
+        self.right_motor.cleanup()
