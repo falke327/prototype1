@@ -2,8 +2,6 @@ import curses
 from motor_driver import MotorDriver
 from keyboard_control import run_keyboard_control
 from logger import setup_logger
-import time
-# from keyboard_control import keyboard_loop
 
 log = setup_logger(__name__, False)
 
